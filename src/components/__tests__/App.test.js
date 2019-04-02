@@ -1,14 +1,24 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import App from '../App'
+import Enzyme, { shallow } from 'enzyme'
+// absolute path modified from .env file
+import App from 'components/App'
+import CommentBox from 'components/CommentBox'
+import CommentList from 'components/CommentList'
+
+// this code also located in setupTests.js
+// Added here so Jest auto-test runs without error
+import Adapter from 'enzyme-adapter-react-16'
+Enzyme.configure({ adapter: new Adapter() })
 
 it('shows a comment box', () => {
-  // Trick React with JSDOM
-  const div = document.createElement('div')
-  ReactDOM.render(<App />, div)
-  // Insert code to look inside the div and check to see if CommentBox is in there
-  expect(div.innerHTML).toContain('Box for comment')
+  // shallow renders just app component and no children inside of it
+  const wrapped = shallow(<App />)
 
-  // This is cleanup after test runs, looks inside the div to find the App component to remove. To help clear/destroy/unmount objects to free memory
-  ReactDOM.unmountComponentAtNode(div)
+  // this returns array of CommentBox components
+  expect(wrapped.find(CommentBox).length).toEqual(1)
+})
+
+it('shows a comment list', () => {
+  const wrapped = shallow(<App />)
+  expect(wrapped.find(CommentList).length).toEqual(1)
 })
