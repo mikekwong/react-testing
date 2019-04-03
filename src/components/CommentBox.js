@@ -18,18 +18,22 @@ class CommentBox extends Component {
 
   render () {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h4>Add a comment</h4>
-        <textarea
-          onChange={this.handleChange}
-          value={this.state.comment}
-          cols='30'
-          rows='10'
-        />
-        <div>
-          <button>Submit Comment</button>
-        </div>
-      </form>
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <h4>Add a comment</h4>
+          <textarea
+            onChange={this.handleChange}
+            value={this.state.comment}
+            cols='30'
+            rows='10'
+          />
+          <div>
+            <button>Submit Comment</button>
+          </div>
+        </form>
+        {/* button added outside of form to it doesn't get caught up in submission of actual form */}
+        <button onClick={this.props.fetchComments}>Fetch Comments</button>
+      </div>
     )
   }
 }
