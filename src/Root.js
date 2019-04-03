@@ -4,9 +4,13 @@ import { createStore } from 'redux'
 import reducers from 'reducers'
 
 // create the store with access to the reducers and initial state for store
-const store = createStore(reducers, {})
+// const store = createStore(reducers, {})
 
 // Encapsulate The app with the Provider so that the connect function can give its components global access to the store
-export default props => {
-  return <Provider store={store}>{props.children}</Provider>
+// These props are destructured so that actual initialState is an empty object for actual use (to exclude the test)
+export default ({ children, initialState = {} }) => {
+  // set props.initialState so that the test can pass in an initial state of values to the store
+  return (
+    <Provider store={createStore(reducers, initialState)}>{children}</Provider>
+  )
 }
