@@ -11,3 +11,9 @@ it('handles actions of type SAVE_COMMENT', () => {
 
   expect(newState).toEqual(['New Comment'])
 })
+
+// passing in empty object is same as passing in an unknown type because it has unknown type. Or can be explicit and pass in random value for type
+it('handles action with unknown type', () => {
+  const newState = commentsReducer([], { type: '2342' })
+  expect(newState).toEqual([])
+})
