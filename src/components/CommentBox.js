@@ -19,8 +19,6 @@ export default class CommentBox extends Component {
       <form onSubmit={this.handleSubmit}>
         <h4>Add a comment</h4>
         <textarea
-          name=''
-          id=''
           onChange={this.handleChange}
           value={this.state.comment}
           cols='30'
