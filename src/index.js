@@ -1,18 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import Root from 'Root'
 // absolute path modified from .env file
-import reducers from 'reducers'
 import App from 'components/App'
 
-// create the store with access to the reducers and initial state for store
-const store = createStore(reducers, {})
-
 // Encapsulate The app with the Provider so that the connect function can give its components global access to the store
+// The Root component is = to Provider where it wraps App because App component gets passed down to index.js as a props.children
+
 ReactDOM.render(
-  <Provider store={store}>
+  <Root>
     <App />
-  </Provider>,
+  </Root>,
   document.querySelector('#root')
 )

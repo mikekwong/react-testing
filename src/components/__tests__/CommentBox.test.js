@@ -2,12 +2,18 @@ import React from 'react'
 // import Full Rendering
 import { mount } from 'enzyme'
 import CommentBox from 'components/CommentBox'
+import Root from 'Root'
 
 let wrapped
 
 // before each test - 1
 beforeEach(() => {
-  wrapped = mount(<CommentBox />)
+  // We wrap Root around CommentBox to simulate Provider tag to simulate Redux store access
+  wrapped = mount(
+    <Root>
+      <CommentBox />
+    </Root>
+  )
 })
 // after each test - 3
 afterEach(() => {
