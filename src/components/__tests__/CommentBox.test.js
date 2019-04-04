@@ -21,10 +21,10 @@ afterEach(() => {
 })
 
 // 2
-it('has a text area and a button', () => {
+it('has a text area and two buttons', () => {
   // again find returns an array of found argument
   expect(wrapped.find('textarea').length).toEqual(1)
-  expect(wrapped.find('button').length).toEqual(1)
+  expect(wrapped.find('button').length).toEqual(2)
 })
 
 describe('the text area', () => {

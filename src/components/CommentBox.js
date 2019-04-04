@@ -32,7 +32,9 @@ class CommentBox extends Component {
           </div>
         </form>
         {/* button added outside of form to it doesn't get caught up in submission of actual form */}
-        <button onClick={this.props.fetchComments}>Fetch Comments</button>
+        <button className='fetch-comments' onClick={this.props.fetchComments}>
+          Fetch Comments
+        </button>
       </div>
     )
   }

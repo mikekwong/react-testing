@@ -1,6 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
+// redux-promise middleware is to handle async action creators or action creators that try to make network requests
 import reduxPromise from 'redux-promise'
 import reducers from 'reducers'
 
