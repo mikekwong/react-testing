@@ -12,10 +12,6 @@ import reducers from 'reducers'
 // These props are destructured so that actual initialState is an empty object for actual use (to exclude the test)
 export default ({ children, initialState = {} }) => {
   // set props.initialState so that the test can pass in an initial state of values to the store
-  const store = createStore(
-    reducers,
-    initialState,
-    applyMiddleware(reduxPromise)
-  )
+  const store = createStore(reducers, initialState, applyMiddleware())
   return <Provider store={store}>{children}</Provider>
 }
